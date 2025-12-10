@@ -4,6 +4,8 @@
 
 The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. This list focuses specifically on MCP servers that enhance DevOps workflows, automation, and infrastructure management.
 
+**Note:** This list includes both existing official MCP servers and community-desired servers that represent valuable DevOps integrations. Links marked with `mcp-contrib` are community project placeholders indicating desired integrations. Official implementations can be found in the [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) repository. Contributions to create these servers are welcome!
+
 ## Contents
 
 - [Official Resources](#official-resources)
@@ -83,10 +85,11 @@ MCP servers for monitoring, logging, and observability tools.
 
 MCP servers for version control systems.
 
-- [GitHub MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/github) - Official GitHub integration
+- [GitHub MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/github) - Official GitHub integration (also listed in CI/CD)
 - [Git MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/git) - Local Git repository operations
-- [GitLab MCP Server](https://github.com/mcp-contrib/mcp-gitlab) - GitLab integration
 - [Bitbucket MCP Server](https://github.com/mcp-contrib/bitbucket-mcp-server) - Bitbucket repository management
+
+*Note: GitLab MCP Server is listed in the [CI/CD](#cicd) section.*
 
 ## Configuration Management
 
