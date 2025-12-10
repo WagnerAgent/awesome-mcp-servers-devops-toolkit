@@ -85,11 +85,10 @@ MCP servers for monitoring, logging, and observability tools.
 
 MCP servers for version control systems.
 
-- [GitHub MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/github) - Official GitHub integration (also listed in CI/CD)
 - [Git MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/git) - Local Git repository operations
 - [Bitbucket MCP Server](https://github.com/mcp-contrib/bitbucket-mcp-server) - Bitbucket repository management
 
-*Note: GitLab MCP Server is listed in the [CI/CD](#cicd) section.*
+*Note: GitHub and GitLab MCP Servers are listed in the [CI/CD](#cicd) section as they provide broader DevOps capabilities beyond version control.*
 
 ## Configuration Management
 
