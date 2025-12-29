@@ -1,82 +1,72 @@
-# Contributing to Awesome MCP Servers for DevOps
+# Contributing
 
-Thank you for your interest in contributing! This list aims to be the most comprehensive resource for DevOps-focused MCP servers.
+Want to add an MCP server to this list? Here's how.
 
-## How to Contribute
+## Requirements
 
-### Adding a New MCP Server
+Every submission must have:
 
-1. **Fork** this repository
-2. **Add your entry** to the appropriate category in `README.md`
-3. **Submit a Pull Request** with a clear description
+1. **A working public link** — GitHub repo, official docs, or both
+2. **DevOps relevance** — Infrastructure, CI/CD, monitoring, security, cloud, or containers
+3. **Active maintenance** — Recent commits or clear maintenance status
 
-### Entry Format
+No placeholder links. No "coming soon" projects.
 
-Use this table format:
+## How to Submit
+
+### Option 1: Pull Request
+
+1. Fork the repo
+2. Add your entry to the appropriate section in `README.md`
+3. Follow the existing format (see below)
+4. Submit a PR with a one-line description
+
+### Option 2: Issue
+
+Open an issue with:
+- Server name
+- Link to repo/docs
+- What it does (one sentence)
+- Why it's useful for DevOps
+
+## Entry Format
+
+Use this structure:
 
 ```markdown
-| :icon: **Server Name** | Brief description of what it does. | [Link Text](https://url) |
+### Server Name
+
+Brief description of what makes this useful.
+
+| | |
+|---|---|
+| **Repo** | [org/repo-name](https://github.com/org/repo-name) |
+| **Maintainer** | Organization (Official) or Community |
+| **What it does** | Core functionality |
 ```
 
-**Icons (pick one):**
-- `:medal_military:` — Official implementation (by the tool's creators)
-- `:snake:` — Python
-- `:card_index:` — TypeScript/JavaScript
-- `:racing_car:` — Go
-- `:crab:` — Rust
-- `:hash:` — C#
-- `:coffee:` — Java
+Add relevant fields like `**Docs**`, `**Status**`, `**Note**`, or `**Requires**` as needed.
 
-### Requirements for New Entries
+## What We Look For
 
-Your MCP server submission should:
+**Good additions:**
+- Official implementations from tool creators
+- Well-documented community projects with real usage
+- Servers that solve actual DevOps problems
 
-- [ ] Be relevant to DevOps workflows (infrastructure, CI/CD, monitoring, security, etc.)
-- [ ] Have a working implementation (not just a concept)
-- [ ] Include a public repository or documentation link
-- [ ] Have a clear description (1-2 sentences)
-- [ ] Be placed in the correct category
+**We'll reject:**
+- Experiments with no documentation
+- Abandoned projects (no activity in 12+ months)
+- Duplicate functionality without differentiation
+- Missing or broken links
 
-### Quality Guidelines
+## New Categories
 
-**Do include:**
-- Actively maintained projects
-- Servers with clear documentation
-- Tools that solve real DevOps problems
-
-**Avoid:**
-- Abandoned projects (no commits in 12+ months without explanation)
-- Duplicate functionality without clear differentiation
-- Servers that require paid access with no free tier (unless official)
-
-## Suggesting Changes
-
-### New Categories
-
-If you think a new category is needed:
-
-1. Open an issue describing the category
-2. List at least 3 servers that would fit
-3. Explain why existing categories don't work
-
-### Corrections
-
-Found an error? Please:
-
-1. Open an issue or PR
-2. Describe what's wrong
-3. Provide the correct information with sources
-
-## Code of Conduct
-
-- Be respectful and constructive
-- Focus on the content, not the contributor
-- Help maintain a welcoming community
-
-## Questions?
-
-Open an issue with the `question` label and we'll help out.
+Want to propose a new category? Open an issue with:
+- Category name
+- At least 3 servers that would fit
+- Why existing categories don't work
 
 ---
 
-**Maintained by [Wagner](https://www.trywagner.dev)** — The first AI DevOps teammate
+[Wagner](https://www.trywagner.dev) — The first AI DevOps teammate

@@ -1,244 +1,361 @@
-# Awesome MCP Servers for DevOps
+# MCP Servers for DevOps Teams
 
-> A curated list of Model Context Protocol (MCP) servers for DevOps teams, enabling AI-assisted infrastructure, CI/CD, monitoring, and security workflows.
+A hand-picked collection of Model Context Protocol servers that actually matter for DevOps workflows.
 
-**Curated by [Wagner](https://www.trywagner.dev)**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+**Curated by [Wagner](https://www.trywagner.dev)** — The first AI DevOps teammate
 
 ---
 
-## What is MCP?
+## Why This List?
 
-Model Context Protocol (MCP) is an open standard that enables AI assistants to securely interact with external tools and data via standardized servers. For DevOps teams, MCP servers unlock "ChatOps 2.0" — giving AI agents the ability to perform tasks across version control, CI/CD, infrastructure provisioning, monitoring, security scanning, and more.
-
----
-
-## Table of Contents
-
-- [Version Control & Code Management](#version-control--code-management)
-- [CI/CD Pipelines](#cicd-pipelines)
-- [Infrastructure as Code (IaC)](#infrastructure-as-code-iac)
-- [Cloud Providers](#cloud-providers)
-- [Container & Kubernetes](#container--kubernetes)
-- [Monitoring & Observability](#monitoring--observability)
-- [Security & Compliance](#security--compliance)
-- [Documentation & Project Management](#documentation--project-management)
-- [Command Line & Automation](#command-line--automation)
-- [Aggregators & Frameworks](#aggregators--frameworks)
+MCP (Model Context Protocol) lets AI assistants interact with your tools — not just chat about them. For DevOps, this means AI can query your Prometheus, sync your Argo CD apps, or scan code with Semgrep. This list focuses on **production-ready servers with real utility**, not every MCP experiment on GitHub.
 
 ---
 
-## Legend
+## Quick Navigation
 
-| Icon | Meaning |
-|------|---------|
-| :medal_military: | Official implementation |
-| :snake: | Python |
-| :card_index: | TypeScript/JavaScript |
-| :racing_car: | Go |
-| :crab: | Rust |
-| :hash: | C# |
-| :coffee: | Java |
+| Category | What It Covers |
+|----------|---------------|
+| [Source Control](#source-control) | GitHub, GitLab, Azure DevOps |
+| [Infrastructure as Code](#infrastructure-as-code) | Terraform, Pulumi, OpenTofu |
+| [Kubernetes & Containers](#kubernetes--containers) | kubectl, Helm, Docker, Portainer |
+| [CI/CD](#cicd) | Argo CD, Jenkins |
+| [Cloud Platforms](#cloud-platforms) | AWS, Azure, Alibaba, Cloudflare |
+| [Observability](#observability) | Grafana, Prometheus, Loki |
+| [Security](#security) | Snyk, Semgrep, Vault |
+| [Collaboration](#collaboration) | Atlassian, Notion |
 
 ---
 
-## Version Control & Code Management
+## Source Control
 
 ### GitHub
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **GitHub MCP Server** | Official server for GitHub repositories. Supports file operations, code search, issues, PRs, comments, merging, and GitHub Actions workflows. Includes read-only mode for safety. | [GitHub](https://github.com/github/github-mcp-server) |
-| :card_index: GitHub Actions Server | Interact with GitHub Actions workflows, trigger runs, and check statuses | [GitHub](https://github.com/rohitg00/awesome-devops-mcp-servers) |
+The official GitHub MCP server — battle-tested and feature-complete.
+
+| | |
+|---|---|
+| **Repo** | [github/github-mcp-server](https://github.com/github/github-mcp-server) |
+| **Maintainer** | GitHub (Official) |
+| **What it does** | Repository operations, issues, PRs, code search, GitHub Actions workflows |
+| **Standout feature** | Lockdown mode for public repos to prevent prompt injection |
 
 ### GitLab
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **GitLab MCP Server** | Official GitLab integration (Premium/Ultimate). Create issues/MRs, retrieve commits, diffs, pipelines, and cross-project issue search. | [GitLab Docs](https://docs.gitlab.com/ee/user/gitlab_duo/mcp.html) |
+Native GitLab integration via their Duo platform.
+
+| | |
+|---|---|
+| **Docs** | [GitLab MCP Server Documentation](https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/) |
+| **Maintainer** | GitLab (Official) |
+| **What it does** | Issues, merge requests, pipelines, commits, cross-project search |
+| **Note** | Requires GitLab 18.6+ for HTTP transport |
 
 ### Azure DevOps
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :card_index: **Azure DevOps MCP** | Repository browsing, work item queries, pipeline triggers for Azure DevOps services. | [GitHub](https://github.com/tiberriver256/azure-devops-mcp-server) |
-
-### Other Git Platforms
-
-| Server | Description | Link |
-|--------|-------------|------|
-| :card_index: Gitea MCP | Self-hosted Git service integration | Community |
-| :card_index: Gitee MCP | Chinese Git platform integration | Community |
+| | |
+|---|---|
+| **Repo** | [atlassian/atlassian-mcp-server](https://github.com/tiberriver256/azure-devops-mcp-server) |
+| **Maintainer** | Community |
+| **What it does** | Repos, work items, pipelines, boards |
 
 ---
 
-## CI/CD Pipelines
+## Infrastructure as Code
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Argo CD MCP Server** | Akuity's official server for Argo CD (GitOps). List/manage applications, sync deployments, view resource trees and logs. | [GitHub](https://github.com/akuity/mcp-server-argocd) |
-| :coffee: **Jenkins MCP Plugin** | Community plugin for Jenkins. Query build statuses, trigger/abort jobs, fetch console logs. | [GitHub](https://github.com/jenkinsci/mcp-server-plugin) |
-| :card_index: Codemagic MCP | Mobile CI/CD platform integration | Community |
+### Terraform
+
+HashiCorp's official MCP server for Terraform workflows.
+
+| | |
+|---|---|
+| **Repo** | [hashicorp/terraform-mcp-server](https://github.com/hashicorp/terraform-mcp-server) |
+| **Docs** | [HashiCorp Developer](https://developer.hashicorp.com/terraform/mcp-server) |
+| **Maintainer** | HashiCorp (Official) |
+| **What it does** | Registry search, workspace management, plan/apply operations, state inspection |
+| **Status** | Beta |
+
+### Vault
+
+Secrets management via MCP.
+
+| | |
+|---|---|
+| **Repo** | [hashicorp/vault-mcp-server](https://github.com/hashicorp/vault-mcp-server) |
+| **Docs** | [HashiCorp Developer](https://developer.hashicorp.com/vault/docs/mcp-server/overview) |
+| **Maintainer** | HashiCorp (Official) |
+| **What it does** | Mount management, KV operations, secrets access |
+| **Status** | Beta — secrets exposure requires trusted clients |
+
+### Pulumi
+
+| | |
+|---|---|
+| **Repo** | [pulumi/mcp-server](https://github.com/pulumi/mcp-server) |
+| **Docs** | [Pulumi MCP Docs](https://www.pulumi.com/docs/iac/guides/ai-integration/mcp-server/) |
+| **Maintainer** | Pulumi (Official) |
+| **What it does** | Stack queries, resource search, Pulumi Cloud integration |
+| **Remote endpoint** | `https://mcp.ai.pulumi.com/mcp` |
+
+### OpenTofu
+
+The open-source Terraform alternative has its own MCP server.
+
+| | |
+|---|---|
+| **Repo** | [opentofu/opentofu-mcp-server](https://github.com/opentofu/opentofu-mcp-server) |
+| **Maintainer** | OpenTofu (Official) |
+| **What it does** | Registry search, provider/module documentation, resource docs |
+| **Remote endpoint** | `mcp.opentofu.org` |
 
 ---
 
-## Infrastructure as Code (IaC)
+## Kubernetes & Containers
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Terraform MCP Server** | HashiCorp's official server. Generate/analyze Terraform configs, search modules/providers, inspect workspace state, plan and trigger runs. | [GitHub](https://github.com/hashicorp/terraform-mcp-server) |
-| :card_index: **OpenTofu MCP Server** | Open-source Terraform alternative. Runs locally or via Cloudflare Workers. | [GitHub](https://github.com/opentofu/mcp-opentofu) |
-| :medal_military: **Pulumi MCP Server** | Official Pulumi server. Preview/deploy infrastructure, manage stacks, list resources via Automation API. | [Pulumi Docs](https://www.pulumi.com/docs/pulumi-cloud/access-management/mcp/) |
-| :racing_car: HCP Terraform Server | Terraform Cloud/Enterprise integration | [GitHub](https://github.com/dulltz/mcp-server-hcp-terraform) |
+### Kubernetes (Multiple Options)
+
+Several solid options exist — pick based on your needs:
+
+**containers/kubernetes-mcp-server** — Native Go implementation, no kubectl dependency
+
+| | |
+|---|---|
+| **Repo** | [containers/kubernetes-mcp-server](https://github.com/containers/kubernetes-mcp-server) |
+| **Why choose it** | Single binary, direct K8s API access, multi-cluster support |
+
+**Azure/mcp-kubernetes** — Microsoft's implementation
+
+| | |
+|---|---|
+| **Repo** | [Azure/mcp-kubernetes](https://github.com/Azure/mcp-kubernetes) |
+| **Why choose it** | Unified kubectl tool interface, minimal context consumption |
+
+**Flux159/mcp-server-kubernetes** — Popular community option
+
+| | |
+|---|---|
+| **Repo** | [Flux159/mcp-server-kubernetes](https://github.com/Flux159/mcp-server-kubernetes) |
+| **Why choose it** | Non-destructive mode, secrets masking, easy Claude Code integration |
+
+**alexei-led/k8s-mcp-server** — Multi-tool support
+
+| | |
+|---|---|
+| **Repo** | [alexei-led/k8s-mcp-server](https://github.com/alexei-led/k8s-mcp-server) |
+| **Why choose it** | kubectl + helm + istioctl + argocd in one server |
+
+### Docker Hub
+
+| | |
+|---|---|
+| **Repo** | [docker/hub-mcp](https://github.com/docker/hub-mcp) |
+| **Docs** | [Docker Hub MCP](https://docs.docker.com/ai/mcp-catalog-and-toolkit/hub-mcp/) |
+| **Maintainer** | Docker (Official) |
+| **What it does** | Image discovery, repository management, tag inspection |
+
+### Portainer
+
+| | |
+|---|---|
+| **Repo** | [portainer/portainer-mcp](https://github.com/portainer/portainer-mcp) |
+| **Maintainer** | Portainer (Official) |
+| **What it does** | Container management, deployments, environment operations |
+| **Note** | Read-only mode available for safety |
 
 ---
 
-## Cloud Providers
+## CI/CD
+
+### Argo CD
+
+GitOps deployment management via AI.
+
+| | |
+|---|---|
+| **Repo** | [akuity/argocd-mcp](https://github.com/akuity/argocd-mcp) |
+| **Maintainer** | Akuity (Official — Argo CD creators) |
+| **What it does** | Application listing, sync operations, resource trees, logs |
+| **Transports** | stdio, HTTP stream |
+
+### Jenkins
+
+| | |
+|---|---|
+| **Repo** | [jenkinsci/mcp-server-plugin](https://github.com/jenkinsci/mcp-server-plugin) |
+| **Plugin page** | [Jenkins Plugin Index](https://plugins.jenkins.io/mcp-server/) |
+| **Maintainer** | Jenkins Community |
+| **What it does** | Build status, job triggers, console logs |
+| **Requires** | Jenkins 2.479+ |
+
+---
+
+## Cloud Platforms
 
 ### AWS
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **AWS MCP Servers** | Official AWS servers covering Lambda, S3 Tables, Knowledge Base, and more. List/manage cloud resources via natural language. | [AWS Labs](https://github.com/awslabs/mcp) |
-| :snake: AWS CLI MCP | Wrap AWS CLI commands for AI access | Community |
+AWS provides a collection of MCP servers for their services.
 
-### Azure
-
-| Server | Description | Link |
-|--------|-------------|------|
-| :card_index: Azure DevOps MCP | Full Azure DevOps integration | [GitHub](https://github.com/tiberriver256/azure-devops-mcp-server) |
-| :card_index: Azure Data Lake Storage | ADLS Gen2 operations | Community |
-| :card_index: Azure Resource Graph | Query Azure resources at scale | Community |
-
-### Alibaba Cloud
-
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Alibaba Cloud MCP** | Official Aliyun server. ECS, Cloud Monitor, OOS operations. | [GitHub](https://github.com/aliyun/alibabacloud-mcp-server) |
+| | |
+|---|---|
+| **Repo** | [awslabs/mcp](https://github.com/awslabs/mcp) |
+| **Docs** | [AWS MCP Servers](https://awslabs.github.io/mcp/) |
+| **Maintainer** | AWS (Official) |
+| **Includes** | AWS API server, Documentation server, Knowledge server, Prometheus server |
 
 ### Cloudflare
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Cloudflare MCP Server** | Official server for Workers, KV, R2, D1. Deploy edge functions, manage storage. | [GitHub](https://github.com/cloudflare/mcp-server-cloudflare) |
+Comprehensive coverage of Cloudflare's platform.
 
-### Other Providers
+| | |
+|---|---|
+| **Repo** | [cloudflare/mcp-server-cloudflare](https://github.com/cloudflare/mcp-server-cloudflare) |
+| **Docs** | [Cloudflare Agents Docs](https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/) |
+| **Maintainer** | Cloudflare (Official) |
+| **What it does** | Workers, KV, R2, D1, observability |
+| **Count** | 13 specialized MCP servers |
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :card_index: VMware ESXi MCP | VMware virtualization management | Community |
-| :card_index: Nutanix MCP | Nutanix HCI operations | Community |
+### Alibaba Cloud
 
----
-
-## Container & Kubernetes
-
-| Server | Description | Link |
-|--------|-------------|------|
-| :snake: **Kubectl MCP Server** | Execute kubectl, helm, and k8s commands via natural language. Safe sandbox mode available. | [GitHub](https://github.com/rohitg00/kubectl-mcp-server) |
-| :card_index: Kubernetes MCP | Alternative k8s management server | [GitHub](https://github.com/manusa/kubernetes-mcp-server) |
-| :medal_military: **Portainer MCP Server** | Official Portainer server for container orchestration, deployments, and monitoring. | [GitHub](https://github.com/portainer/portainer-mcp-server) |
-| :medal_military: **Docker Hub MCP** | Official Docker Hub integration. Query images, list tags, check image details. | [Docker Hub](https://hub.docker.com/extensions/docker/mcp-catalog) |
-| :card_index: Tilt MCP | Development environment for k8s | Community |
+| | |
+|---|---|
+| **Repo** | [aliyun/alibaba-cloud-ops-mcp-server](https://github.com/aliyun/alibaba-cloud-ops-mcp-server) |
+| **Maintainer** | Alibaba Cloud (Official) |
+| **What it does** | ECS, Cloud Monitor, OOS operations |
+| **Also available** | [ACK (Kubernetes)](https://github.com/aliyun/alibabacloud-ack-mcp-server), [DataWorks](https://github.com/aliyun/alibabacloud-dataworks-mcp-server), [DMS](https://github.com/aliyun/alibabacloud-dms-mcp-server), [Function Compute](https://github.com/aliyun/alibabacloud-fc-mcp-server) |
 
 ---
 
-## Monitoring & Observability
+## Observability
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Grafana MCP Server** | Official server. Query dashboards, retrieve alerts, access metrics. Configurable toolset with optimized responses. | [GitHub](https://github.com/grafana/mcp-grafana) |
-| :snake: Prometheus MCP | Query Prometheus metrics directly | Community |
-| :snake: Alertmanager MCP | Manage Prometheus Alertmanager | Community |
-| :card_index: VictoriaMetrics MCP | High-performance metrics backend | Community |
-| :card_index: Dynatrace MCP | APM and observability platform | Community |
-| :card_index: Last9 MCP | SRE and observability tools | Community |
-| :card_index: Polar Signals MCP | Continuous profiling integration | Community |
+### Grafana
 
----
+| | |
+|---|---|
+| **Repo** | [grafana/mcp-grafana](https://github.com/grafana/mcp-grafana) |
+| **Maintainer** | Grafana Labs (Official) |
+| **What it does** | Dashboard queries, alerts, datasource info, incident management |
+| **Requires** | Grafana 9.0+ |
+| **Related** | [Loki MCP](https://github.com/grafana/loki-mcp), [Tempo MCP](https://github.com/grafana/tempo-mcp-server) |
 
-## Security & Compliance
+### Prometheus
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Snyk MCP Server** | Official server. Scan code, dependencies, containers, IaC, and SBOMs for vulnerabilities. Generate AI Bill of Materials. | [Snyk Docs](https://docs.snyk.io/scm-ide-and-ci-cd-integrations/snyk-ide-plugins-and-extensions/snyk-mcp-server) |
-| :medal_military: **Semgrep MCP Server** | Official static analysis. Scan for OWASP Top 10, insecure patterns, and code quality issues. | [GitHub](https://github.com/semgrep/mcp-server-semgrep) |
-| :snake: Ghidra MCP | Binary reverse engineering and analysis | Community |
-| :snake: VirusTotal MCP | Malware and threat analysis | Community |
-| :snake: Shodan MCP | Internet-connected device search | Community |
-| :snake: CVE-Search MCP | Vulnerability database queries | Community |
-| :card_index: Linux Security Audit | Security auditing for Linux systems | Community |
+Several community implementations available:
+
+| Repo | Language | Notes |
+|------|----------|-------|
+| [pab1it0/prometheus-mcp-server](https://github.com/pab1it0/prometheus-mcp-server) | Python | 177 stars, well-documented |
+| [yshngg/prometheus-mcp-server](https://github.com/yshngg/prometheus-mcp-server) | Go | 100% Prometheus API compatibility |
+| [idanfishman/prometheus-mcp](https://github.com/idanfishman/prometheus-mcp) | Node.js | stdio + HTTP transports |
+
+AWS also provides a [Prometheus MCP Server](https://awslabs.github.io/mcp/servers/prometheus-mcp-server) for Amazon Managed Prometheus with SigV4 auth.
 
 ---
 
-## Documentation & Project Management
+## Security
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :medal_military: **Notion MCP Server** | Official Notion integration. Retrieve/update pages and databases. Access runbooks, docs, wikis. | [Notion Docs](https://developers.notion.com/docs/mcp) |
-| :medal_military: **Atlassian MCP Server** | Official server for Jira, Confluence, Compass. Search/summarize tickets, create issues, chain tasks. OAuth 2.1 secured. | [Atlassian Docs](https://developer.atlassian.com/cloud/mcp/) |
-| :card_index: Jira MCP | Standalone Jira integration | Community |
-| :card_index: Confluence MCP | Standalone Confluence integration | Community |
-| :card_index: Freshdesk MCP | Support ticketing integration | Community |
-| :card_index: Topdesk MCP | Incident management | Community |
+### Snyk
 
----
+Vulnerability scanning directly from your AI assistant.
 
-## Command Line & Automation
+| | |
+|---|---|
+| **Docs** | [Snyk MCP Documentation](https://docs.snyk.io/cli-ide-and-ci-cd-integrations/snyk-cli/developer-guardrails-for-agentic-workflows/snyk-mcp-early-access) |
+| **Maintainer** | Snyk (Official) |
+| **What it does** | Code scanning, dependency checks, container scanning, IaC analysis, SBOM generation |
+| **Access** | Via `snyk mcp` CLI command (v1.1296.2+) |
 
-| Server | Description | Link |
-|--------|-------------|------|
-| :snake: Shell Command MCP | Execute shell commands with security policies | Community |
-| :card_index: Terminal Automation | Automated terminal interactions | Community |
-| :snake: Cisco pyATS MCP | Network device automation | Community |
-| :card_index: Playwright MCP | Browser automation and testing | Community |
-| :card_index: Puppeteer MCP | Headless Chrome automation | Community |
+### Semgrep
 
----
-
-## Aggregators & Frameworks
-
-| Server | Description | Link |
-|--------|-------------|------|
-| :snake: **FastMCP (Python)** | Framework for building MCP servers quickly in Python | [GitHub](https://github.com/jlowin/fastmcp) |
-| :card_index: **FastMCP (TypeScript)** | TypeScript port of FastMCP | Community |
-| :card_index: MCP Aggregator | Connect 500+ applications through single interface | Community |
-| :card_index: MCP Proxy | Middleware for routing MCP requests | Community |
+| | |
+|---|---|
+| **Repo** | [semgrep/mcp](https://github.com/semgrep/mcp) |
+| **Docs** | [Semgrep MCP Docs](https://semgrep.dev/docs/mcp) |
+| **Maintainer** | Semgrep (Official) |
+| **What it does** | Static analysis, OWASP scanning, custom rule execution |
+| **Remote** | `https://mcp.semgrep.ai` (no auth required) |
 
 ---
 
-## Best Practices
+## Collaboration
 
-1. **Start Read-Only**: Begin with read-only permissions when integrating MCP servers. Expand access as trust is established.
+### Atlassian (Jira + Confluence)
 
-2. **Use Official Servers**: Prefer official (:medal_military:) implementations when available — they're maintained by the tool creators.
+| | |
+|---|---|
+| **Repo** | [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server) |
+| **Docs** | [Atlassian Remote MCP](https://www.atlassian.com/platform/remote-mcp-server) |
+| **Maintainer** | Atlassian (Official) |
+| **What it does** | Jira issues, Confluence pages, Compass integration, cross-product workflows |
+| **Security** | OAuth 2.0, respects existing permissions |
 
-3. **Credential Security**: Store API tokens and credentials securely. Use environment variables, not hardcoded values.
+Community alternative with Server/Data Center support: [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian)
 
-4. **Audit Actions**: Log AI agent actions for compliance and debugging. Many servers support audit modes.
+### Notion
 
-5. **Sandbox First**: Test in non-production environments before enabling write operations in production.
+| | |
+|---|---|
+| **Repo** | [makenotion/notion-mcp-server](https://github.com/makenotion/notion-mcp-server) |
+| **Docs** | [Notion MCP](https://developers.notion.com/docs/mcp) |
+| **Maintainer** | Notion (Official) |
+| **What it does** | Page/database queries, content creation, workspace navigation |
+| **Options** | Hosted server or self-host via npm/Docker |
+
+---
+
+## Getting Started
+
+### Basic Setup Pattern
+
+Most MCP servers follow this configuration pattern for Claude Desktop or similar clients:
+
+```json
+{
+  "mcpServers": {
+    "server-name": {
+      "command": "npx",
+      "args": ["-y", "@org/mcp-server-package"]
+    }
+  }
+}
+```
+
+For remote/hosted servers:
+
+```json
+{
+  "mcpServers": {
+    "server-name": {
+      "type": "http",
+      "url": "https://server-endpoint.example.com/mcp"
+    }
+  }
+}
+```
+
+### Safety First
+
+1. **Start read-only** — Most servers support read-only modes. Use them until you trust the integration.
+2. **Scope permissions** — Use dedicated API tokens with minimal required access.
+3. **Audit actions** — Log what your AI assistant does, especially for write operations.
+4. **Test in staging** — Don't let AI touch production until you've validated behavior.
 
 ---
 
 ## Contributing
 
-Found an MCP server we missed? Check out our [Contributing Guide](CONTRIBUTING.md) and open a PR!
+Have a DevOps MCP server that should be here? [Open a PR](CONTRIBUTING.md).
+
+**Requirements:**
+- Must have a working public repository or documentation
+- Must be relevant to DevOps workflows
+- Must include verified links
 
 ---
 
-## Resources
+## Additional Resources
 
 - [MCP Specification](https://modelcontextprotocol.io/)
 - [Anthropic MCP Documentation](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
-- [Awesome DevOps MCP Servers (source)](https://github.com/rohitg00/awesome-devops-mcp-servers)
-
----
-
-## License
-
-MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
